@@ -18,8 +18,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161411.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161429.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230202165310.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230202170828.png">
 <meta property="article:published_time" content="2023-02-02T07:05:50.000Z">
-<meta property="article:modified_time" content="2023-02-02T08:59:57.719Z">
+<meta property="article:modified_time" content="2023-02-02T09:45:42.476Z">
 <meta property="article:author" content="KAI">
 <meta property="article:tag" content="CS3103">
 <meta property="article:tag" content="Operating System">
@@ -118,6 +119,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </ul>
 <p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154137.png"></p>
 
+        <h1 id="調度（Scheduling"   >
+          <a href="#調度（Scheduling" class="heading-link"><i class="fas fa-link"></i></a><a href="#調度（Scheduling" class="headerlink" title="調度（Scheduling)"></a>調度（Scheduling)</h1>
+      
         <h2 id="進程調度-Process-Scheduling"   >
           <a href="#進程調度-Process-Scheduling" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程調度-Process-Scheduling" class="headerlink" title="進程調度 (Process Scheduling)"></a>進程調度 (Process Scheduling)</h2>
       <ul>
@@ -183,6 +187,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </ul>
 <p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161156.png"></p>
 
+        <h1 id="狀態（State"   >
+          <a href="#狀態（State" class="heading-link"><i class="fas fa-link"></i></a><a href="#狀態（State" class="headerlink" title="狀態（State)"></a>狀態（State)</h1>
+      
         <h2 id="進程樹-Process-Tree"   >
           <a href="#進程樹-Process-Tree" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程樹-Process-Tree" class="headerlink" title="進程樹 (Process Tree)"></a>進程樹 (Process Tree)</h2>
       <ul>
@@ -279,6 +286,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </li>
 </ul>
 
+        <h1 id="通訊（Communication"   >
+          <a href="#通訊（Communication" class="heading-link"><i class="fas fa-link"></i></a><a href="#通訊（Communication" class="headerlink" title="通訊（Communication)"></a>通訊（Communication)</h1>
+      
         <h2 id="進程合作（Processes-Cooperation"   >
           <a href="#進程合作（Processes-Cooperation" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程合作（Processes-Cooperation" class="headerlink" title="進程合作（Processes Cooperation)"></a>進程合作（Processes Cooperation)</h2>
       <ul>
@@ -324,26 +334,181 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </li>
 </ul>
 
-        <h2 id="實現問題-implementation"   >
-          <a href="#實現問題-implementation" class="heading-link"><i class="fas fa-link"></i></a><a href="#實現問題-implementation" class="headerlink" title="實現問題 (implementation)"></a>實現問題 (implementation)</h2>
-      </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文結束，感謝您的閱讀 ------</div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/CS3103/">CS3103</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/Operating-System/">Operating System</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/30/CS3481-Lecture-3/"><span class="paginator-prev__text">CS3481-Lecture-3</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="utterances-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目錄</span><span class="sidebar-nav-ov">本站概覽</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%EF%BC%88Process%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">
+        <h3 id="實現問題-implementation"   >
+          <a href="#實現問題-implementation" class="heading-link"><i class="fas fa-link"></i></a><a href="#實現問題-implementation" class="headerlink" title="實現問題 (implementation)"></a>實現問題 (implementation)</h3>
+      <ul>
+<li>怎樣建立連接？</li>
+<li>連接可以相關聯多過兩個進程？</li>
+<li>多少個連接可以在每一對進程通訊？</li>
+<li>連接的容量是什麼？</li>
+<li>信息大小在連接可以容納固定或者變量？</li>
+</ul>
+
+        <h3 id="通訊模型（Communication-Models"   >
+          <a href="#通訊模型（Communication-Models" class="heading-link"><i class="fas fa-link"></i></a><a href="#通訊模型（Communication-Models" class="headerlink" title="通訊模型（Communication Models)"></a>通訊模型（Communication Models)</h3>
+      <p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202170828.png"></p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>信息傳遞模型</th>
+<th>分享內存模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>信息傳遞設施是用於通訊</td>
+<td>分享內存區域用於通訊</td>
+</tr>
+<tr>
+<td>它能用於分佈式環境，通訊進程寄留在遠端機器通過網絡連接</td>
+<td>它用於通訊在進程間在一個處理器或者多個處理器系統，通訊進程在同一個機器</td>
+</tr>
+<tr>
+<td>OS提供通信和同步機制執行在通訊進程間</td>
+<td>需要程序員去寫程序明確調度數據訪問在不同的進程</td>
+</tr>
+<tr>
+<td>它是耗時的，信息傳遞實現通過核心干涉</td>
+<td>它提供了最大速度計算於通訊，通過共享內存和系統調用只需要建立共享內存</td>
+</tr>
+</tbody></table></div>
+
+        <h2 id="直接通訊-Direct-Communication"   >
+          <a href="#直接通訊-Direct-Communication" class="heading-link"><i class="fas fa-link"></i></a><a href="#直接通訊-Direct-Communication" class="headerlink" title="直接通訊 (Direct Communication)"></a>直接通訊 (Direct Communication)</h2>
+      <ul>
+<li><p>進程必須明確互相命名</p>
+<ul>
+<li>send(P, message) - 發送信息去進程P</li>
+<li>receive(Q, message) - 接受一個信息來自於進程Q</li>
+</ul>
+</li>
+<li><p>通訊連接的特性：</p>
+<ul>
+<li>自動地建立連接</li>
+<li>一個連接相關於具體一對通訊進程</li>
+<li>每個對存在具體的連接</li>
+<li>連接可能是單向的，但通常是雙向的</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="間接通訊-Indirect-Communication"   >
+          <a href="#間接通訊-Indirect-Communication" class="heading-link"><i class="fas fa-link"></i></a><a href="#間接通訊-Indirect-Communication" class="headerlink" title="間接通訊 (Indirect Communication)"></a>間接通訊 (Indirect Communication)</h2>
+      <ul>
+<li><p>信息直接和接收來自於郵箱（或者成為port)</p>
+<ul>
+<li>每個郵箱有獨立的ID</li>
+<li>進程能通訊只有他們共享一個郵箱</li>
+</ul>
+</li>
+<li><p>通訊連接的特性：</p>
+<ul>
+<li>連接只建立在於進程共享一個共同的郵箱</li>
+<li>一個連接可能相關很多進程</li>
+<li>每個進程對可能分享多個通訊連接</li>
+<li>連接可能是單向或雙向</li>
+</ul>
+</li>
+<li><p>郵箱操作</p>
+<ul>
+<li>創建一個新的郵箱</li>
+<li>發送和接收信息通過郵箱</li>
+<li>摧毀一個郵箱</li>
+</ul>
+</li>
+<li><p>原語被定為</p>
+<ul>
+<li>send(A, message) - 發送一個信息去郵箱A</li>
+<li>receive(A, message) - 接收一個信息來自郵箱A</li>
+</ul>
+</li>
+<li><p>郵箱共享</p>
+<ul>
+<li>P1, P2, P3 共享郵箱A</li>
+<li>P1, 發送， P2和P3接收</li>
+<li>P2和P3接收到信息</li>
+</ul>
+</li>
+<li><p>可能解決方案</p>
+<ul>
+<li>允許一個連接相關於最多兩個進程</li>
+<li>允許只有一個進程在一個時間執行接收操作</li>
+<li>允許系統選擇隨意接收者，發送者提示誰為接收者</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="同步-Synchronization"   >
+          <a href="#同步-Synchronization" class="heading-link"><i class="fas fa-link"></i></a><a href="#同步-Synchronization" class="headerlink" title="同步 (Synchronization)"></a>同步 (Synchronization)</h2>
+      <ul>
+<li><p>信息傳遞要麼是阻塞或者不阻塞</p>
+<ul>
+<li>阻塞被考慮在同步<ul>
+<li>阻塞發送是發送者阻塞，直到信息被接收</li>
+<li>阻塞接收是接受者阻塞，直到信息可用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>非阻塞考慮在異步</p>
+<ul>
+<li>非阻塞發送是發送者發送信息然後繼續</li>
+<li>非阻塞接收是接收者接收一個有效信息或者null</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="客戶-服務器通訊-（Client-Server-Communication"   >
+          <a href="#客戶-服務器通訊-（Client-Server-Communication" class="heading-link"><i class="fas fa-link"></i></a><a href="#客戶-服務器通訊-（Client-Server-Communication" class="headerlink" title="客戶-服務器通訊 （Client-Server Communication)"></a>客戶-服務器通訊 （Client-Server Communication)</h2>
+      <ul>
+<li><p>互聯網接套</p>
+<ul>
+<li>一個接套被定義一個終端為通訊</li>
+<li>IP地址串聯和port</li>
+</ul>
+</li>
+<li><p>Unix接套</p>
+<ul>
+<li>使用必要地相同功能調用像互聯網接套</li>
+<li>所有的通訊發生完全在OS的核心，而不是使用一個潛在的網絡協議</li>
+<li>雙向FIFO隊列</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="遠程過程調用-Remote-Procedure-Calls"   >
+          <a href="#遠程過程調用-Remote-Procedure-Calls" class="heading-link"><i class="fas fa-link"></i></a><a href="#遠程過程調用-Remote-Procedure-Calls" class="headerlink" title="遠程過程調用 (Remote Procedure Calls)"></a>遠程過程調用 (Remote Procedure Calls)</h2>
+      <ul>
+<li>RPC 抽象過程調用在網絡系統進程中</li>
+<li>客戶端存根定位服務器和整理參數</li>
+<li>服務器端存根接收這個信息，打開整理參數和運行步驟在服務器</li>
+</ul>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文結束，感謝您的閱讀 ------</div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/CS3103/">CS3103</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/Operating-System/">Operating System</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/02/02/CS3103-Lecture-3/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">CS3103-Lecture-3</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/30/CS3481-Lecture-3/"><span class="paginator-prev__text">CS3481-Lecture-3</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="utterances-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目錄</span><span class="sidebar-nav-ov">本站概覽</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%EF%BC%88Process%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">
           進程（Process）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E5%92%8C%E7%B7%9A%E7%A8%8B%EF%BC%88Process-and-Thread"><span class="toc-number">1.1.</span> <span class="toc-text">
           進程和線程（Process and Thread)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%EF%BC%88Process"><span class="toc-number">1.2.</span> <span class="toc-text">
           進程（Process)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E7%8B%80%E6%85%8B%EF%BC%88Process-State"><span class="toc-number">1.3.</span> <span class="toc-text">
           進程狀態（Process State)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%A1%8A-%EF%BC%88Process-Control-Block-PCB"><span class="toc-number">1.4.</span> <span class="toc-text">
-          進程控制塊 （Process Control Block) PCB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E8%AA%BF%E5%BA%A6-Process-Scheduling"><span class="toc-number">1.5.</span> <span class="toc-text">
-          進程調度 (Process Scheduling)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AA%BF%E5%BA%A6%E7%A8%8B%E5%BA%8F-Scheduler"><span class="toc-number">1.6.</span> <span class="toc-text">
-          調度程序 (Scheduler)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU%E7%B6%81%E5%AE%9A%E5%92%8CI-x2F-O%E7%B6%81%E5%AE%9A"><span class="toc-number">1.7.</span> <span class="toc-text">
-          CPU綁定和I&#x2F;O綁定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A7%E5%AE%B9%E5%88%87%E6%8F%9B-Context-Switch"><span class="toc-number">1.8.</span> <span class="toc-text">
-          內容切換 (Context Switch)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E6%A8%B9-Process-Tree"><span class="toc-number">1.9.</span> <span class="toc-text">
-          進程樹 (Process Tree)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E5%89%B5%E5%BB%BA-Process-Creation"><span class="toc-number">1.10.</span> <span class="toc-text">
-          進程創建 (Process Creation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E7%9A%84%E9%80%B2%E7%A8%8B-Process-on-Android"><span class="toc-number">1.11.</span> <span class="toc-text">
-          安卓的進程 (Process on Android)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E7%B5%82%E7%B5%90-Process-Termination"><span class="toc-number">1.12.</span> <span class="toc-text">
-          進程終結 (Process Termination)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E5%90%88%E4%BD%9C%EF%BC%88Processes-Cooperation"><span class="toc-number">1.13.</span> <span class="toc-text">
-          進程合作（Processes Cooperation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E7%94%A2%E8%80%85-%E6%B6%88%E8%B2%BB%E8%80%85%E5%95%8F%E9%A1%8C%EF%BC%88Producer-Consumer-Problem"><span class="toc-number">1.14.</span> <span class="toc-text">
-          生產者-消費者問題（Producer-Consumer Problem)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A-Interprocess-Communication-IPC"><span class="toc-number">1.15.</span> <span class="toc-text">
-          進程間通訊 (Interprocess Communication)(IPC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E7%8F%BE%E5%95%8F%E9%A1%8C-implementation"><span class="toc-number">1.16.</span> <span class="toc-text">
-          實現問題 (implementation)</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
+          進程控制塊 （Process Control Block) PCB</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AA%BF%E5%BA%A6%EF%BC%88Scheduling"><span class="toc-number">2.</span> <span class="toc-text">
+          調度（Scheduling)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E8%AA%BF%E5%BA%A6-Process-Scheduling"><span class="toc-number">2.1.</span> <span class="toc-text">
+          進程調度 (Process Scheduling)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AA%BF%E5%BA%A6%E7%A8%8B%E5%BA%8F-Scheduler"><span class="toc-number">2.2.</span> <span class="toc-text">
+          調度程序 (Scheduler)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU%E7%B6%81%E5%AE%9A%E5%92%8CI-x2F-O%E7%B6%81%E5%AE%9A"><span class="toc-number">2.3.</span> <span class="toc-text">
+          CPU綁定和I&#x2F;O綁定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A7%E5%AE%B9%E5%88%87%E6%8F%9B-Context-Switch"><span class="toc-number">2.4.</span> <span class="toc-text">
+          內容切換 (Context Switch)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8B%80%E6%85%8B%EF%BC%88State"><span class="toc-number">3.</span> <span class="toc-text">
+          狀態（State)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E6%A8%B9-Process-Tree"><span class="toc-number">3.1.</span> <span class="toc-text">
+          進程樹 (Process Tree)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E5%89%B5%E5%BB%BA-Process-Creation"><span class="toc-number">3.2.</span> <span class="toc-text">
+          進程創建 (Process Creation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E7%9A%84%E9%80%B2%E7%A8%8B-Process-on-Android"><span class="toc-number">3.3.</span> <span class="toc-text">
+          安卓的進程 (Process on Android)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E7%B5%82%E7%B5%90-Process-Termination"><span class="toc-number">3.4.</span> <span class="toc-text">
+          進程終結 (Process Termination)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%A8%8A%EF%BC%88Communication"><span class="toc-number">4.</span> <span class="toc-text">
+          通訊（Communication)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E5%90%88%E4%BD%9C%EF%BC%88Processes-Cooperation"><span class="toc-number">4.1.</span> <span class="toc-text">
+          進程合作（Processes Cooperation)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E7%94%A2%E8%80%85-%E6%B6%88%E8%B2%BB%E8%80%85%E5%95%8F%E9%A1%8C%EF%BC%88Producer-Consumer-Problem"><span class="toc-number">4.2.</span> <span class="toc-text">
+          生產者-消費者問題（Producer-Consumer Problem)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E7%A8%8B%E9%96%93%E9%80%9A%E8%A8%8A-Interprocess-Communication-IPC"><span class="toc-number">4.3.</span> <span class="toc-text">
+          進程間通訊 (Interprocess Communication)(IPC)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%A6%E7%8F%BE%E5%95%8F%E9%A1%8C-implementation"><span class="toc-number">4.3.1.</span> <span class="toc-text">
+          實現問題 (implementation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%A8%8A%E6%A8%A1%E5%9E%8B%EF%BC%88Communication-Models"><span class="toc-number">4.3.2.</span> <span class="toc-text">
+          通訊模型（Communication Models)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E9%80%9A%E8%A8%8A-Direct-Communication"><span class="toc-number">4.4.</span> <span class="toc-text">
+          直接通訊 (Direct Communication)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%93%E6%8E%A5%E9%80%9A%E8%A8%8A-Indirect-Communication"><span class="toc-number">4.5.</span> <span class="toc-text">
+          間接通訊 (Indirect Communication)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5-Synchronization"><span class="toc-number">4.6.</span> <span class="toc-text">
+          同步 (Synchronization)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B6-%E6%9C%8D%E5%8B%99%E5%99%A8%E9%80%9A%E8%A8%8A-%EF%BC%88Client-Server-Communication"><span class="toc-number">4.7.</span> <span class="toc-text">
+          客戶-服務器通訊 （Client-Server Communication)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%A0%E7%A8%8B%E9%81%8E%E7%A8%8B%E8%AA%BF%E7%94%A8-Remote-Procedure-Calls"><span class="toc-number">4.8.</span> <span class="toc-text">
+          遠程過程調用 (Remote Procedure Calls)</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
   var d = document, s = d.createElement('script');
   var container = d.getElementById('utterances-container');
 
