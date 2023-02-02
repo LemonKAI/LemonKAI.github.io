@@ -46,7 +46,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </li>
 <li><p>線程</p>
 <ul>
-<li>線程是進程的執行單位(A thread is the unit of execution whithin a Process)</li>
+<li>線程是進程的執行單位(A thread is the unit of execution whithin a Process)<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154019.png"></li>
 </ul>
 </li>
 </ul>
@@ -54,12 +54,14 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
         <h2 id="進程（Process"   >
           <a href="#進程（Process" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程（Process" class="headerlink" title="進程（Process)"></a>進程（Process)</h2>
       <ul>
-<li>進程包括<ul>
+<li><p>進程包括</p>
+<ul>
 <li>程序計數器</li>
 <li>棧</li>
 <li>數據</li>
 <li>…</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154042.png"></p>
 </li>
 </ul>
 
@@ -75,9 +77,238 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 </ul>
 </li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154113.png"></p>
 
-        <h2 id="進程控制塊-（Process-Contral-Block-PCB"   >
-          <a href="#進程控制塊-（Process-Contral-Block-PCB" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程控制塊-（Process-Contral-Block-PCB" class="headerlink" title="進程控制塊 （Process Contral Block) PCB"></a>進程控制塊 （Process Contral Block) PCB</h2>
+        <h2 id="進程控制塊-（Process-Control-Block-PCB"   >
+          <a href="#進程控制塊-（Process-Control-Block-PCB" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程控制塊-（Process-Control-Block-PCB" class="headerlink" title="進程控制塊 （Process Control Block) PCB"></a>進程控制塊 （Process Control Block) PCB</h2>
+      <ul>
+<li><p>每個進程都被展示在OS里的進程控制塊</p>
+<ul>
+<li>或者成為任務控制塊</li>
+</ul>
+</li>
+<li><p>每個進程在OS的信息紀錄如下：</p>
+<ul>
+<li>進程ID(Process ID (PID))</li>
+<li>進程狀態（Process state)</li>
+<li>程序計數器 (program counter)</li>
+<li>寄存器數值 (Register values)</li>
+<li>CPU調度信息 (CPU scheduling information)(e.g. priority)</li>
+<li>打開的文件列表 (List of open files)</li>
+<li>I&#x2F;O 狀態信息 (I&#x2F;O status information)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154137.png"></p>
+
+        <h2 id="進程調度-Process-Scheduling"   >
+          <a href="#進程調度-Process-Scheduling" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程調度-Process-Scheduling" class="headerlink" title="進程調度 (Process Scheduling)"></a>進程調度 (Process Scheduling)</h2>
+      <ul>
+<li>一些隊列涉及進程調度<ul>
+<li><strong>工作列隊 (Job queue)</strong> - 系統中所有進程的集合</li>
+<li><strong>預備列隊 (Ready queue)</strong> - 主要內存進程的集合，預備和等候去執行</li>
+<li><strong>設備列隊 (Device queue)</strong> - 等候I&#x2F;O設備進程的集合</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154159.png"></p>
+<ul>
+<li>進程遷移在這些列隊中</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202154225.png"></p>
+
+        <h2 id="調度程序-Scheduler"   >
+          <a href="#調度程序-Scheduler" class="heading-link"><i class="fas fa-link"></i></a><a href="#調度程序-Scheduler" class="headerlink" title="調度程序 (Scheduler)"></a>調度程序 (Scheduler)</h2>
+      <ul>
+<li><p><strong>長期調度程序（long-term scheduler）</strong> (or job scheduler) - 選擇進程應該進入預備列隊</p>
+<ul>
+<li>很少調用</li>
+<li>安排執行在某些工作在某些時間</li>
+<li>控制多程序的程度</li>
+</ul>
+</li>
+<li><p><strong>短期調度程序 (short-term scheduler)</strong> (or CPU scheduler) - 選擇進程應該被執行和分配CPU</p>
+<ul>
+<li>經常調用</li>
+<li>創建並發（concurrency), 切換必須足夠快</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="CPU綁定和I-x2F-O綁定"   >
+          <a href="#CPU綁定和I-x2F-O綁定" class="heading-link"><i class="fas fa-link"></i></a><a href="#CPU綁定和I-x2F-O綁定" class="headerlink" title="CPU綁定和I&#x2F;O綁定"></a>CPU綁定和I&#x2F;O綁定</h2>
+      <ul>
+<li>進程可以分為<ul>
+<li>CPU綁定進程 (CPU-bound process): 花費更多時間在計算<ul>
+<li>很少有長時間CPU衝突</li>
+</ul>
+</li>
+<li>I&#x2F;O綁定進程 (I&#x2F;O-bound process): 花費更多時間在I&#x2F;O多於計算<ul>
+<li>有許多短時間的CPU衝突</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202160603.png"></p>
+
+        <h2 id="內容切換-Context-Switch"   >
+          <a href="#內容切換-Context-Switch" class="heading-link"><i class="fas fa-link"></i></a><a href="#內容切換-Context-Switch" class="headerlink" title="內容切換 (Context Switch)"></a>內容切換 (Context Switch)</h2>
+      <ul>
+<li><p>當CPU切換去其他進程， 系統會保存舊進程的狀態和載入已保存狀態的新進程</p>
+<ul>
+<li>內容切換時間是開銷， 切換時沒有幹活</li>
+<li>時間依賴於硬件支持<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161052.png"></li>
+</ul>
+</li>
+<li><p>內容切換設想例子</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161156.png"></p>
+
+        <h2 id="進程樹-Process-Tree"   >
+          <a href="#進程樹-Process-Tree" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程樹-Process-Tree" class="headerlink" title="進程樹 (Process Tree)"></a>進程樹 (Process Tree)</h2>
+      <ul>
+<li><p>Unix 例子<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161319.png"></p>
+</li>
+<li><p>父進程創建子進程<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161411.png"></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202161429.png"></p>
+
+        <h2 id="進程創建-Process-Creation"   >
+          <a href="#進程創建-Process-Creation" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程創建-Process-Creation" class="headerlink" title="進程創建 (Process Creation)"></a>進程創建 (Process Creation)</h2>
+      <ul>
+<li><p>子進程可能會複製父進程的內存空間，或者載入新的內存內容，</p>
+</li>
+<li><p>UNIX 例子</p>
+<ul>
+<li><strong>fork</strong> 系統稱為創建新進程</li>
+<li><strong>exec</strong> 系統稱為使用在fork去取代進程內存空間在新程序和執行</li>
+</ul>
+</li>
+<li><p>步驟：</p>
+<ol>
+<li><p><strong>載入</strong>一個程序代碼進入內存：</p>
+<ul>
+<li>程序最初可執行格式留在磁盤上</li>
+<li>OS 平台延遲加載進程<ul>
+<li>加載代碼塊或者數據只有他們在程序執行需要的時候</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>程序運行棧被分配</p>
+<ul>
+<li>使用棧為本地變量(local varoables)，函數參數(fucntion parameters)和返回地址(return address)</li>
+<li>初始化棧用參數 argc 和argv array 在main()函數</li>
+</ul>
+</li>
+<li><p>程序的堆被創建</p>
+<ul>
+<li>為了明確請求動態分配數據</li>
+<li>程序請求空間調用 malloc()函數和釋放他們調用free()函數</li>
+</ul>
+</li>
+<li><p>OS做一些其他的初始化任務</p>
+<ul>
+<li>I&#x2F;O 設置<ul>
+<li>每一個進程預設有3個打開文件描述</li>
+<li>標準輸入，輸出和錯誤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>開始程序運行入口</p>
+<ul>
+<li>稱為 main()</li>
+<li>OS 將CPU的控制權轉移給新創建的進程</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+        <h2 id="安卓的進程-Process-on-Android"   >
+          <a href="#安卓的進程-Process-on-Android" class="heading-link"><i class="fas fa-link"></i></a><a href="#安卓的進程-Process-on-Android" class="headerlink" title="安卓的進程 (Process on Android)"></a>安卓的進程 (Process on Android)</h2>
+      <ul>
+<li><p>默認情況下，每個應用運行在他們擁有的Linux 進程</p>
+</li>
+<li><p>有一些應用可能會使用幾個進程</p>
+</li>
+</ul>
+
+        <h2 id="進程終結-Process-Termination"   >
+          <a href="#進程終結-Process-Termination" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程終結-Process-Termination" class="headerlink" title="進程終結 (Process Termination)"></a>進程終結 (Process Termination)</h2>
+      <ul>
+<li><p>進程執行最後狀態和詢問系統刪除它（exit)</p>
+<ul>
+<li>輸出數據從子進程到父進程 （wait)</li>
+<li>進程資源被OS取消進程（de-allocated)</li>
+</ul>
+</li>
+<li><p>父進程可以終止子進程的執行（abort）</p>
+<ul>
+<li>發生於<ul>
+<li>子進程超過分配資源</li>
+<li>任務分配給子進程不再需要</li>
+<li>父進程存在<ul>
+<li>有一些OS 不允許子進程繼續運行當父進程被終結時</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="進程合作（Processes-Cooperation"   >
+          <a href="#進程合作（Processes-Cooperation" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程合作（Processes-Cooperation" class="headerlink" title="進程合作（Processes Cooperation)"></a>進程合作（Processes Cooperation)</h2>
+      <ul>
+<li><p>獨立進程不能影響或者被影響於其他進程</p>
+</li>
+<li><p>合作進程可以影響或者被影響於其他進程</p>
+</li>
+<li><p>進程合作的好處</p>
+<ul>
+<li>信息共享</li>
+<li>計算速度上升</li>
+<li>模塊化</li>
+<li>方便</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="生產者-消費者問題（Producer-Consumer-Problem"   >
+          <a href="#生產者-消費者問題（Producer-Consumer-Problem" class="heading-link"><i class="fas fa-link"></i></a><a href="#生產者-消費者問題（Producer-Consumer-Problem" class="headerlink" title="生產者-消費者問題（Producer-Consumer Problem)"></a>生產者-消費者問題（Producer-Consumer Problem)</h2>
+      <ul>
+<li>生產者生產信息被消費者消費<ul>
+<li>無界緩衝區沒有實際限制緩衝區大小</li>
+<li>有界緩衝區假設了一個固定大小的緩衝區</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230202165310.png"></p>
+
+        <h2 id="進程間通訊-Interprocess-Communication-IPC"   >
+          <a href="#進程間通訊-Interprocess-Communication-IPC" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程間通訊-Interprocess-Communication-IPC" class="headerlink" title="進程間通訊 (Interprocess Communication)(IPC)"></a>進程間通訊 (Interprocess Communication)(IPC)</h2>
+      <ul>
+<li>一個機制為了進程通訊和同步</li>
+<li>信息系統 - 進程間通訊不需要求助於共享變量</li>
+<li>IPC 設施提供兩個操作<ul>
+<li>發送（send)</li>
+<li>接收（receive)</li>
+</ul>
+</li>
+<li>P 和 Q 希望通訊，他們需要<ul>
+<li>建立一個通訊連接</li>
+<li>交換信息通過發送和接收</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="實現問題-implementation"   >
+          <a href="#實現問題-implementation" class="heading-link"><i class="fas fa-link"></i></a><a href="#實現問題-implementation" class="headerlink" title="實現問題 (implementation)"></a>實現問題 (implementation)</h2>
       </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/01/30/CS3481-Lecture-3/">CS3481-Lecture-3</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-01-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-02-02</span></span></div></header><div class="post-body"><div class="post-excerpt"><span id="more"></span>
 
         <h1 id="Classification"   >
