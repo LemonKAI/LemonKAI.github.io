@@ -1,13 +1,31 @@
-<!DOCTYPE html><html lang="zh-HK"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="主要分享自己學習程序的經驗">
-<meta property="og:type" content="website">
-<meta property="og:title" content="KAI Blog">
-<meta property="og:url" content="https://lemonkai.github.io/index.html">
+<!DOCTYPE html><html lang="zh-HK"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="Data        A data set can often be viewed as a collection of data objects  Other names for a data object include recorde, point, vector, pattern, event, case, sample, observation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS3481-Lectrue-2">
+<meta property="og:url" content="https://lemonkai.github.io/2023/01/16/CS3481-Lectrue-2/index.html">
 <meta property="og:site_name" content="KAI Blog">
-<meta property="og:description" content="主要分享自己學習程序的經驗">
+<meta property="og:description" content="Data        A data set can often be viewed as a collection of data objects  Other names for a data object include recorde, point, vector, pattern, event, case, sample, observation">
 <meta property="og:locale" content="zh_HK">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204155.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204114.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204047.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204028.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204006.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130203948.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130203926.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130203904.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130203800.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130203737.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204357.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204426.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130205356.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130205427.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130210104.png">
+<meta property="article:published_time" content="2023-01-16T11:37:14.000Z">
+<meta property="article:modified_time" content="2023-01-30T13:17:33.375Z">
 <meta property="article:author" content="KAI">
 <meta property="article:tag" content="部落格, 學習">
-<meta name="twitter:card" content="summary"><title>KAI Blog</title><link ref="canonical" href="https://lemonkai.github.io/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230130204155.png"><title>CS3481-Lectrue-2 | KAI Blog</title><link ref="canonical" href="https://lemonkai.github.io/2023/01/16/CS3481-Lectrue-2/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -31,96 +49,7 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首頁</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">歸檔</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分類</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">標籤</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">KAI Blog</div><div class="header-banner-info__subtitle">KAI的學習日記,抒發心情</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/02/02/CS3103-Lecture-2/">CS3103-Lecture-2</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-02-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-02-02</span></span></div></header><div class="post-body"><div class="post-excerpt">
-        <h1 id="進程（Process）"   >
-          <a href="#進程（Process）" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程（Process）" class="headerlink" title="進程（Process）"></a>進程（Process）</h1>
-      
-        <h2 id="進程和線程（Process-and-Thread"   >
-          <a href="#進程和線程（Process-and-Thread" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程和線程（Process-and-Thread" class="headerlink" title="進程和線程（Process and Thread)"></a>進程和線程（Process and Thread)</h2>
-      <ul>
-<li><p>進程</p>
-<ul>
-<li>一個執行的程序（a program in execution)</li>
-</ul>
-</li>
-<li><p>線程</p>
-<ul>
-<li>線程是進程的執行單位(A thread is the unit of execution whithin a Process)</li>
-</ul>
-</li>
-</ul>
-
-        <h2 id="進程（Process"   >
-          <a href="#進程（Process" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程（Process" class="headerlink" title="進程（Process)"></a>進程（Process)</h2>
-      <ul>
-<li>進程包括<ul>
-<li>程序計數器</li>
-<li>棧</li>
-<li>數據</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-
-        <h2 id="進程狀態（Process-State"   >
-          <a href="#進程狀態（Process-State" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程狀態（Process-State" class="headerlink" title="進程狀態（Process State)"></a>進程狀態（Process State)</h2>
-      <ul>
-<li>作為一個進程執行，它會改變狀態<ul>
-<li>新（new):進程開始被創建</li>
-<li>準備（ready): 進程在等待CPU分配任務</li>
-<li>運行（running): 指令正在被執行</li>
-<li>等候（waiting): 進程等待某些時間發生</li>
-<li>終結 (terminated): 進程已結束執行</li>
-</ul>
-</li>
-</ul>
-
-        <h2 id="進程控制塊-（Process-Contral-Block-PCB"   >
-          <a href="#進程控制塊-（Process-Contral-Block-PCB" class="heading-link"><i class="fas fa-link"></i></a><a href="#進程控制塊-（Process-Contral-Block-PCB" class="headerlink" title="進程控制塊 （Process Contral Block) PCB"></a>進程控制塊 （Process Contral Block) PCB</h2>
-      </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/01/30/CS3481-Lecture-3/">CS3481-Lecture-3</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-01-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-01-31</span></span></div></header><div class="post-body"><div class="post-excerpt">
-        <h1 id="Classification"   >
-          <a href="#Classification" class="heading-link"><i class="fas fa-link"></i></a><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h1>
-      <ul>
-<li><p>Classification is the task of assigning objects to one of several predefined categories</p>
-</li>
-<li><p>It is an important problem in many applications</p>
-<ul>
-<li>Detecting spam email messages based on the message header and content</li>
-<li>Categorizing cells as malignant or benign based on the results of MRI scans</li>
-<li>Classifying galaxies based on their shapes</li>
-</ul>
-</li>
-<li><p>The input data for a classification task is a collection fo records</p>
-</li>
-<li><p>Each record, also known as an instance or example, is characterized by a tuple(x,y)</p>
-<ul>
-<li>x is the attribute set</li>
-<li>y is the class label, also known as category or target attribute.</li>
-</ul>
-</li>
-<li><p>The class label is a discrete attribute.</p>
-</li>
-<li><p>Classification is the task of learning a target function f that maps each attribute set x to one of the predefined class labels y.</p>
-</li>
-<li><p>The target function is also known as a classification model.</p>
-</li>
-<li><p>A classification model is useful for the following purposes</p>
-<ul>
-<li>Descriptive modeling</li>
-<li>Predictive modeling</li>
-</ul>
-</li>
-<li><p>A classification technique is a systematic approach to perform classification on an input data set</p>
-</li>
-<li><p>Example include</p>
-<ul>
-<li>Decision tree classifiers</li>
-<li>Neural networks</li>
-<li>Support vector machines</li>
-</ul>
-</li>
-</ul>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/01/16/CS3481-Lectrue-2/">CS3481-Lectrue-2</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-01-16</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-01-30</span></span></div></header><div class="post-body"><div class="post-excerpt">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首頁</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">歸檔</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分類</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">標籤</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">CS3481-Lectrue-2</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-01-16</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-01-30</span></span></div></header><div class="post-body">
         <h1 id="Data"   >
           <a href="#Data" class="heading-link"><i class="fas fa-link"></i></a><a href="#Data" class="headerlink" title="Data"></a>Data</h1>
       <ul>
@@ -795,6 +724,71 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 <li>A scatter plot can graphically show the realtionship between two attributes.</li>
 <li>In particular, it can be  used to judge the degree of linear correlation of the attributes.</li>
 </ul>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2023/01/11/databaseL1/">Database Systems Lecture 1</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-01-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-02-02</span></span></div></header><div class="post-body"><div class="post-excerpt"><h1 id="前言"   >
-          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
-      <p>首先，先祝各位新年快樂。<br>由於舊的電腦壞掉了,之前的文章都無了，加上新學期開了，打算重新開個新坑，希望這次我能堅持久點hhh。</p></div><div class="post-readmore"><a class="post-readmore__link" href="/2023/01/11/databaseL1/"><span class="post-readmore__text">閱讀全文</span><span class="post-readmore__icon"><i class="fas fa-long-arrow-alt-right"></i></span></a></div></div></article></section><nav class="paginator"><div class="paginator-inner"><span class="page-number current">1</span></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">2</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文結束，感謝您的閱讀 ------</div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/01/30/CS3481-Lecture-3/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">CS3481-Lecture-3</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/11/databaseL1/"><span class="paginator-prev__text">Database Systems Lecture 1</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="utterances-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目錄</span><span class="sidebar-nav-ov">本站概覽</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Data"><span class="toc-number">1.</span> <span class="toc-text">
+          Data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attribute"><span class="toc-number">2.</span> <span class="toc-text">
+          Attribute</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Different-types-of-attributes"><span class="toc-number">3.</span> <span class="toc-text">
+          Different types of attributes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nominal"><span class="toc-number">3.1.</span> <span class="toc-text">
+          Nominal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ordinal"><span class="toc-number">3.2.</span> <span class="toc-text">
+          Ordinal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interval"><span class="toc-number">3.3.</span> <span class="toc-text">
+          Interval</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ratio"><span class="toc-number">3.4.</span> <span class="toc-text">
+          Ratio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Discrete"><span class="toc-number">3.5.</span> <span class="toc-text">
+          Discrete</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Continuous"><span class="toc-number">3.6.</span> <span class="toc-text">
+          Continuous</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Types-of-data-sets"><span class="toc-number">4.</span> <span class="toc-text">
+          Types of data sets</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Record-data"><span class="toc-number">4.1.</span> <span class="toc-text">
+          Record data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Transaction-or-market-basket-data"><span class="toc-number">4.2.</span> <span class="toc-text">
+          Transaction or market basket data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-matrix"><span class="toc-number">4.3.</span> <span class="toc-text">
+          Data matrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sparse-data-matrix"><span class="toc-number">4.4.</span> <span class="toc-text">
+          Sparse data matrix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-quality"><span class="toc-number">4.5.</span> <span class="toc-text">
+          Data quality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-quality-Missing-values"><span class="toc-number">4.6.</span> <span class="toc-text">
+          Data quality: Missing values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-preprocessing"><span class="toc-number">4.7.</span> <span class="toc-text">
+          Data preprocessing</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Aggregation-%E8%81%9A%E5%90%88"><span class="toc-number">4.7.1.</span> <span class="toc-text">
+          Aggregation(聚合)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sampling"><span class="toc-number">4.7.2.</span> <span class="toc-text">
+          Sampling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dimensionality-reduction"><span class="toc-number">4.7.3.</span> <span class="toc-text">
+          Dimensionality reduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature-subset-selection"><span class="toc-number">4.7.4.</span> <span class="toc-text">
+          Feature subset selection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Embedded-approaches"><span class="toc-number">4.7.4.1.</span> <span class="toc-text">
+          Embedded approaches</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Filter-approaches"><span class="toc-number">4.7.4.2.</span> <span class="toc-text">
+          Filter approaches</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Wrapper-approaches"><span class="toc-number">4.7.4.3.</span> <span class="toc-text">
+          Wrapper approaches</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Discretization"><span class="toc-number">4.8.</span> <span class="toc-text">
+          Discretization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Normalization"><span class="toc-number">4.9.</span> <span class="toc-text">
+          Normalization</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Similarity-and-dissimilarity"><span class="toc-number">5.</span> <span class="toc-text">
+          Similarity and dissimilarity</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dissimilarity-between-attribute-values"><span class="toc-number">5.1.</span> <span class="toc-text">
+          Dissimilarity between attribute values</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nominal-1"><span class="toc-number">5.1.1.</span> <span class="toc-text">
+          Nominal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ordinal-1"><span class="toc-number">5.1.2.</span> <span class="toc-text">
+          Ordinal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interval-x2F-Ratio"><span class="toc-number">5.1.3.</span> <span class="toc-text">
+          Interval&#x2F;Ratio</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Distance"><span class="toc-number">6.</span> <span class="toc-text">
+          Distance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Summary-statistics"><span class="toc-number">7.</span> <span class="toc-text">
+          Summary statistics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Realtive-frequency-and-the-mode"><span class="toc-number">7.1.</span> <span class="toc-text">
+          Realtive frequency and the mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mean"><span class="toc-number">7.2.</span> <span class="toc-text">
+          Mean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Median"><span class="toc-number">7.3.</span> <span class="toc-text">
+          Median</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mean-and-Median"><span class="toc-number">7.4.</span> <span class="toc-text">
+          Mean and Median</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Range"><span class="toc-number">7.5.</span> <span class="toc-text">
+          Range</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variance"><span class="toc-number">7.6.</span> <span class="toc-text">
+          Variance</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Multivariate-summary-statistics"><span class="toc-number">8.</span> <span class="toc-text">
+          Multivariate summary statistics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Data-visualization"><span class="toc-number">9.</span> <span class="toc-text">
+          Data visualization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Histogram"><span class="toc-number">9.1.</span> <span class="toc-text">
+          Histogram</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scatter-plot"><span class="toc-number">9.2.</span> <span class="toc-text">
+          Scatter plot</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">2</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
+  var d = document, s = d.createElement('script');
+  var container = d.getElementById('utterances-container');
+
+  if (!container) {
+    return;
+  }
+  s.src = 'https://utteranc.es/client.js';
+  s.setAttribute('repo', 'LemonKAI/KAIBlogComment');
+  s.setAttribute('issue-term', 'title');
+  s.setAttribute('label', 'utterances');
+  s.setAttribute('theme', 'github-light');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.setAttribute('async', '');
+  if (false) {
+    s.setAttribute('data-pjax-rm', '');
+  }
+  container.append(s);
+}
+
+if (false) {
+  loadUtterances();
+} else {
+  window.addEventListener('DOMContentLoaded', loadUtterances, false);
+}</script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
