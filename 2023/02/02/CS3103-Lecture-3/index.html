@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230209171033.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230209171350.png">
 <meta property="article:published_time" content="2023-02-02T09:46:27.000Z">
-<meta property="article:modified_time" content="2023-02-09T09:18:40.689Z">
+<meta property="article:modified_time" content="2023-02-09T09:30:13.319Z">
 <meta property="article:author" content="KAI">
 <meta property="article:tag" content="CS3103">
 <meta property="article:tag" content="Operating System">
@@ -436,6 +436,40 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
 <li><p>Implemented by many-to-one or many-to-many model</p>
 </li>
 </ul>
+
+        <h2 id="Linux-Threads"   >
+          <a href="#Linux-Threads" class="heading-link"><i class="fas fa-link"></i></a><a href="#Linux-Threads" class="headerlink" title="Linux Threads"></a>Linux Threads</h2>
+      <ul>
+<li>A partial implementation of Pthread on Linux<ul>
+<li>Linux refers to them as tasks rather than threads</li>
+<li>Thread creation is done through clone() system call<ul>
+<li><code>clone()</code> allows a child task to share address spcae of the parent task</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Later superseded by Native POSIX Thread Library(NPTL)<ul>
+<li>One-to-one threads model</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Windows-XP-Treads"   >
+          <a href="#Windows-XP-Treads" class="heading-link"><i class="fas fa-link"></i></a><a href="#Windows-XP-Treads" class="headerlink" title="Windows XP Treads"></a>Windows XP Treads</h2>
+      <ul>
+<li>Implements the one-to-one model</li>
+<li>Each thread contains<ul>
+<li>id, register set, separate user and kernel stacks, private data storage area</li>
+</ul>
+</li>
+<li>The register set, stacks, and private storage area are known as the context of the threads</li>
+<li>The primary data structures of a thread include:<ul>
+<li>ETHREAD(executive thread block)</li>
+<li>KTHREAD(kernel thread block)</li>
+<li>TEB(thread environment block)</li>
+</ul>
+</li>
+</ul>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文結束，感謝您的閱讀 ------</div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/CS3103/">CS3103</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/Operating-System/">Operating System</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/02/07/CS3402-Lecture-4/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">CS3402-Lecture-4</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/02/02/CS3103-Lecture-2/"><span class="paginator-prev__text">CS3103-Lecture-2</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="utterances-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目錄</span><span class="sidebar-nav-ov">本站概覽</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Threads"><span class="toc-number">1.</span> <span class="toc-text">
           Threads</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Address-Space"><span class="toc-number">1.1.</span> <span class="toc-text">
           Address Space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparing-Process-and-Thread"><span class="toc-number">1.2.</span> <span class="toc-text">
@@ -461,7 +495,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
           Contex Switch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Context-Protection-for-Interrupts"><span class="toc-number">1.10.1.</span> <span class="toc-text">
           Context Protection for Interrupts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-Tick-SysTick"><span class="toc-number">1.10.2.</span> <span class="toc-text">
           System Tick(SysTick)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-Thread"><span class="toc-number">1.11.</span> <span class="toc-text">
-          Java Thread</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
+          Java Thread</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-Threads"><span class="toc-number">1.12.</span> <span class="toc-text">
+          Linux Threads</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-XP-Treads"><span class="toc-number">1.13.</span> <span class="toc-text">
+          Windows XP Treads</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
   var d = document, s = d.createElement('script');
   var container = d.getElementById('utterances-container');
 
