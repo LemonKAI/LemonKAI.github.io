@@ -18,8 +18,19 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316162718.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316162852.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316163038.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316165438.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316165603.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172319.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172350.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172712.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172817.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172950.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173035.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173103.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173126.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173402.png">
 <meta property="article:published_time" content="2023-03-02T09:02:51.000Z">
-<meta property="article:modified_time" content="2023-03-16T08:39:01.725Z">
+<meta property="article:modified_time" content="2023-03-16T09:36:43.477Z">
 <meta property="article:author" content="KAI">
 <meta property="article:tag" content="CS3103">
 <meta property="article:tag" content="Operating System">
@@ -324,8 +335,267 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
         <h2 id="Safe-State"   >
           <a href="#Safe-State" class="heading-link"><i class="fas fa-link"></i></a><a href="#Safe-State" class="headerlink" title="Safe State"></a>Safe State</h2>
       <ul>
-<li>When a process requests an available resource, system must decide if immediate allocation leaves the system in a safe state<ul>
-<li>there exists a sequence <code>&lt;P1, P2,..., Pn&gt;</code></li>
+<li><p>When a process requests an available resource, system must decide if immediate allocation leaves the system in a safe state</p>
+<ul>
+<li>there exists a sequence <code>&lt;P1, P2,..., Pn&gt;</code> of all processes in the system</li>
+<li>for each Pi, resources that Pi may still request can be satisfied by currently available resources + resources held by all the Pj, with j &lt; i</li>
+</ul>
+</li>
+<li><p>Safe state can guarantee no deadlock </p>
+<ul>
+<li>if Pi’s resource needs are not immediately available:<ul>
+<li>wait until all Pj have finished(j&lt; i)<ul>
+<li>when all Pj (j &lt; i ) has finished, Pi can obtain needed resources</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>System in safe state –&gt; no deadlocks</p>
+</li>
+<li><p>SYstem in unsafe state –&gt; possibility of deadlock</p>
+</li>
+<li><p>Deadlock avoidance: ensure a system never enters an unsafe state</p>
+</li>
+<li><p>Deadlock Avoidance Algorithms</p>
+<ul>
+<li>Single instance of a resource type: resource-allocation graph</li>
+<li>Multiple instances of a resource type: banker’s algorithm</li>
+</ul>
+</li>
+</ul>
+
+        <h1 id="Resource-Allocation-Graph-1"   >
+          <a href="#Resource-Allocation-Graph-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#Resource-Allocation-Graph-1" class="headerlink" title="Resource-Allocation Graph"></a>Resource-Allocation Graph</h1>
+      <ul>
+<li><p>Two tpyes of nodes:</p>
+<ul>
+<li><code>P = &#123;P1, P2, ..., Pn&#125;</code>, the set of all the processes in the system</li>
+<li><code>R = &#123;R1, R2, ..., Rm&#125;</code>, the set of all the resource types in the system</li>
+</ul>
+</li>
+<li><p>Two types of edges:</p>
+<ul>
+<li>request edge: directed dege Pi -&gt; Rj</li>
+<li>assignment dege: directed edge Rj -&gt; Pi</li>
+<li>claim edge: directed dege Pi -&gt; Rj<ul>
+<li>process Pi may request resource Rj</li>
+<li>dash line</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Single-instance-Deadlock-Avoidance"   >
+          <a href="#Single-instance-Deadlock-Avoidance" class="heading-link"><i class="fas fa-link"></i></a><a href="#Single-instance-Deadlock-Avoidance" class="headerlink" title="Single-instance Deadlock Avoidance"></a>Single-instance Deadlock Avoidance</h2>
+      <ul>
+<li><p>Using reource- allocation graph</p>
+</li>
+<li><p>Transitions in between deges</p>
+<ul>
+<li>claim dge -&gt; request edge when a process requests resource</li>
+<li>request dege -&gt; assignment edge when resource allocated to process</li>
+<li>assignment dege -&gt; claim dege when resource released by process<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316165438.png"></li>
+</ul>
+</li>
+<li><p>THe request can be granted only if converting a request edge to an assignemnt dege does not result in a cycle</p>
+<ul>
+<li>no cycle -&gt; safe state<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316165603.png"></li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Banker’s-Algorithm"   >
+          <a href="#Banker’s-Algorithm" class="heading-link"><i class="fas fa-link"></i></a><a href="#Banker’s-Algorithm" class="headerlink" title="Banker’s Algorithm"></a>Banker’s Algorithm</h2>
+      <ul>
+<li><p>For multiplep-instance resource deadlock avoidance</p>
+</li>
+<li><p>Assumptions:</p>
+<ul>
+<li>each process must a priori claim maximum use of each resource type</li>
+<li>when a process requests a resource, it may have to wait</li>
+<li>when a process gets all its resources it must release them in a finite amount of time</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Banker’s-Algorithm-State-Data-Structure"   >
+          <a href="#Banker’s-Algorithm-State-Data-Structure" class="heading-link"><i class="fas fa-link"></i></a><a href="#Banker’s-Algorithm-State-Data-Structure" class="headerlink" title="Banker’s Algorithm: State Data Structure"></a>Banker’s Algorithm: State Data Structure</h3>
+      <ul>
+<li>n processes, m type of resources<ul>
+<li>available: an array of length m, instance if avaiabel resource<ul>
+<li><code>available[j] = k: </code> k instances of resource type Rj available</li>
+</ul>
+</li>
+<li>max: a n $\times$ m matrix<ul>
+<li><code>max[i,j] = k: </code> process Pi may request at most k instances of resource Rj</li>
+</ul>
+</li>
+<li>allocation: n × m matrix <ul>
+<li><code>allocation[i,j] = k: </code>Pi is currently allocated k instances of R</li>
+</ul>
+</li>
+<li><code>need: n × m matrix</code><ul>
+<li><code>need[i,j] = k: </code>Pi may need k more instances of Rj to complete its task</li>
+<li><code>need[i,j] = max[i,j] –allocation [i,j]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Banker’s-Algorithm-Safe-State"   >
+          <a href="#Banker’s-Algorithm-Safe-State" class="heading-link"><i class="fas fa-link"></i></a><a href="#Banker’s-Algorithm-Safe-State" class="headerlink" title="Banker’s Algorithm: Safe State"></a>Banker’s Algorithm: Safe State</h3>
+      <ul>
+<li>Data structure to compute wether the system is in a safe state<ul>
+<li>use <code>work[j]</code> to track allocatable resources of type Rj<ul>
+<li>unallocated + released by finished processes</li>
+</ul>
+</li>
+<li>use <code>finish[i]</code> to track whether process Pi is finished</li>
+<li>initialize: <code>work[j]=available[j]</code> for all j, <code>finish[i] = false</code> for all i</li>
+</ul>
+</li>
+<li>Algorithm:<ol>
+<li>find an i satisfying <code>finish[i] = false &amp;&amp; need[i,j] &lt; work[j];</code> if ont exist, go to step3</li>
+<li>with the above found i do <code>work[j] = work[j] + allocation[i,j] for all j, finish[i] = true</code>, go to step 1</li>
+<li>if <code>finish[i] == true</code>, then the system is in a safe state</li>
+</ol>
+</li>
+</ul>
+
+        <h3 id="Banker’s-Algorithm-Resource-Allocation"   >
+          <a href="#Banker’s-Algorithm-Resource-Allocation" class="heading-link"><i class="fas fa-link"></i></a><a href="#Banker’s-Algorithm-Resource-Allocation" class="headerlink" title="Banker’s Algorithm: Resource Allocation"></a>Banker’s Algorithm: Resource Allocation</h3>
+      <ul>
+<li><p>Data structure: request for each process Pi and resource type Rj</p>
+<ul>
+<li><code>request[i,j] = k</code> -&gt; porcess Pi wants k instances of resource type Rj</li>
+</ul>
+</li>
+<li><p>Algorithm(assuming allocating resource for Pi)</p>
+<ol>
+<li>if $\forall$ j: <code>request[i,j] &lt;= need[i,j]</code>, go to 2; otherwise, raise error (exceed maximum claim)</li>
+<li>if $\forall$ j: <code>request[i,j] &lt; available[j]</code> go to 3; otherwise Pi must wait</li>
+<li>pretend to allocated requested resources to Pi by modifying the states</li>
+</ol>
+<ul>
+<li><code>available[j] = available[j] - request[i,j] for all j</code></li>
+<li><code>allocation[i,j] = allocation[i,j] - request[i,j] for all j</code></li>
+<li><code>need[i,j] = need[i,j] - request[i,j] for all j</code></li>
+</ul>
+<ol start="4">
+<li>use previous algorithm to tst if ti is a safe state</li>
+</ol>
+<ul>
+<li>if yes -&gt; allocate the resources to Pi</li>
+<li>if no -&gt; Pi must wait, and the old resource-allocation state is restored</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Banker’s-Algorithm-Example"   >
+          <a href="#Banker’s-Algorithm-Example" class="heading-link"><i class="fas fa-link"></i></a><a href="#Banker’s-Algorithm-Example" class="headerlink" title="Banker’s Algorithm: Example"></a>Banker’s Algorithm: Example</h3>
+      <ul>
+<li><p>System state:</p>
+<ul>
+<li>5 processes P0 through P4</li>
+<li>3 resource types: A (10 instances), B (5 instances) and C (7 instances)</li>
+</ul>
+</li>
+<li><p>Snapshot at time T0:<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172319.png"></p>
+</li>
+<li><p>Why &lt; P1, P3, P4, P2, P0&gt; is in safe state?</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172350.png"></p>
+<ol>
+<li>needed[1] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [5 3 2], finish[1] &#x3D; true </li>
+<li>needed[3] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [7 4 3], finish[3] &#x3D; true</li>
+<li>needed[4] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [7 4 5], finish[4] &#x3D; true</li>
+<li>needed[2] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [10 4 7], finish[2] &#x3D; true</li>
+<li>needed[0] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [10 5 7], finish[0] &#x3D; true</li>
+</ol>
+<ul>
+<li>P1 requests 1 0 2, still in safe state?<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172712.png"></li>
+</ul>
+<ol>
+<li>needed[1] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [5 3 2], finish[1] &#x3D; true </li>
+<li>needed[3] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [7 4 3], finish[3] &#x3D; true</li>
+<li>needed[4] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [7 4 5], finish[4] &#x3D; true</li>
+<li>needed[2] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [10 4 7], finish[2] &#x3D; true</li>
+<li>needed[0] &lt;&#x3D; work –&gt; work &#x3D; work + allocation &#x3D; [10 5 7], finish[0] &#x3D; true</li>
+</ol>
+<ul>
+<li>P0 requests 0 2 0, still in safe state?</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172817.png"></p>
+<ul>
+<li>We cannot find a process that the need[i] &lt; work[i]</li>
+</ul>
+
+        <h2 id="Deadlock-Avoidance-via-Scheduling"   >
+          <a href="#Deadlock-Avoidance-via-Scheduling" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deadlock-Avoidance-via-Scheduling" class="headerlink" title="Deadlock Avoidance via Scheduling"></a>Deadlock Avoidance via Scheduling</h2>
+      <ul>
+<li><p>In some scenarios deadlock avoidance is preferable.</p>
+<ul>
+<li>Global knowledge is required:<ul>
+<li>Which locks various threads might grab during their execution.</li>
+<li>Subsequently schedules said threads in a way as to guarantee no deadlock can occur</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>We have two processors and four threads.</p>
+<ul>
+<li>Lock acquisition demands of the threads:<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316172950.png"></li>
+<li>A smart scheduler could compute that as long as T1 and T2 are not run at the same time, no deadlock could ever arise.<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173035.png"></li>
+</ul>
+</li>
+<li><p>More contention for the same resources<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173103.png"></p>
+</li>
+<li><p>A possible schedule that guarantees that no deadlock could ever occur.<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173126.png"></p>
+<ul>
+<li>The total time to complete the jobs is lengthened considerably.</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Deadlock-Detection"   >
+          <a href="#Deadlock-Detection" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deadlock-Detection" class="headerlink" title="Deadlock Detection"></a>Deadlock Detection</h2>
+      <ul>
+<li>System may enter deadlock state, but detect and recover from it</li>
+<li>Detection algorithm and recovery scheme</li>
+</ul>
+
+        <h3 id="Deadlock-Detection-Single-Instance-Resources"   >
+          <a href="#Deadlock-Detection-Single-Instance-Resources" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deadlock-Detection-Single-Instance-Resources" class="headerlink" title="Deadlock Detection: Single Instance Resources"></a>Deadlock Detection: Single Instance Resources</h3>
+      <ul>
+<li>Wait-for graph: nodes are processes</li>
+<li>Pi➞Pj if Pi is waiting for Pj</li>
+<li>Periodically searches for a cycle in the graph<ul>
+<li>if there is a cycle, there exists a deadlock</li>
+<li>detecting cycles in a graph requires O(n2) operations<ul>
+<li>n is the number of nodes in the graph<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230316173402.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Deadlock-Detection-Multi-instance-Resources"   >
+          <a href="#Deadlock-Detection-Multi-instance-Resources" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deadlock-Detection-Multi-instance-Resources" class="headerlink" title="Deadlock Detection: Multi-instance Resources"></a>Deadlock Detection: Multi-instance Resources</h3>
+      <ul>
+<li>Similar to Banker’s algorithm’s safety condition <ul>
+<li>to prove it is impossible to enter a safe state<ul>
+<li>Banker’s algorithm is to prove it is impossible to enter an unsafe state</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data structures<br>– available: an array of length m, instances of available resource<br>– allocation: n × m matrix, the current resource allocated to each process<br>– request: n x m matrix, the current resource request  of each process.<br>– work: an array of length m, the allocatable instances of resources<br>– finish: a vector of n, whether the process has been “finished”<ul>
+<li>if allocation[i] ≠0  -&gt; finish[i] &#x3D; false; otherwise, finish[i] &#x3D; true</li>
 </ul>
 </li>
 </ul>
@@ -343,7 +613,18 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></he
           Deadlock Prevention - No Preemption</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prevention-Mutual-Exclusion"><span class="toc-number">4.3.</span> <span class="toc-text">
           Prevention - Mutual Exclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deadlock-Aboidance"><span class="toc-number">4.4.</span> <span class="toc-text">
           Deadlock Aboidance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Safe-State"><span class="toc-number">4.5.</span> <span class="toc-text">
-          Safe State</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
+          Safe State</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Resource-Allocation-Graph-1"><span class="toc-number">5.</span> <span class="toc-text">
+          Resource-Allocation Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-instance-Deadlock-Avoidance"><span class="toc-number">5.1.</span> <span class="toc-text">
+          Single-instance Deadlock Avoidance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Banker%E2%80%99s-Algorithm"><span class="toc-number">5.2.</span> <span class="toc-text">
+          Banker’s Algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Banker%E2%80%99s-Algorithm-State-Data-Structure"><span class="toc-number">5.2.1.</span> <span class="toc-text">
+          Banker’s Algorithm: State Data Structure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Banker%E2%80%99s-Algorithm-Safe-State"><span class="toc-number">5.2.2.</span> <span class="toc-text">
+          Banker’s Algorithm: Safe State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Banker%E2%80%99s-Algorithm-Resource-Allocation"><span class="toc-number">5.2.3.</span> <span class="toc-text">
+          Banker’s Algorithm: Resource Allocation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Banker%E2%80%99s-Algorithm-Example"><span class="toc-number">5.2.4.</span> <span class="toc-text">
+          Banker’s Algorithm: Example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deadlock-Avoidance-via-Scheduling"><span class="toc-number">5.3.</span> <span class="toc-text">
+          Deadlock Avoidance via Scheduling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deadlock-Detection"><span class="toc-number">5.4.</span> <span class="toc-text">
+          Deadlock Detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deadlock-Detection-Single-Instance-Resources"><span class="toc-number">5.4.1.</span> <span class="toc-text">
+          Deadlock Detection: Single Instance Resources</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deadlock-Detection-Multi-instance-Resources"><span class="toc-number">5.4.2.</span> <span class="toc-text">
+          Deadlock Detection: Multi-instance Resources</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
   var d = document, s = d.createElement('script');
   var container = d.getElementById('utterances-container');
 
