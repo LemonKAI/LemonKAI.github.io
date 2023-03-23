@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-HK"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="Background">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS3103-Lecture-7">
+<meta property="og:url" content="https://lemonkai.github.io/2023/03/23/CS3103-Lecture-7/index.html">
+<meta property="og:site_name" content="KAI Blog">
+<meta property="og:description" content="Background">
+<meta property="og:locale" content="zh_HK">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323151337.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323151846.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323152311.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323152338.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323152701.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160200.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160235.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160302.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160432.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160618.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160810.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323161558.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323161818.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323162703.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323162842.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323163136.png">
+<meta property="article:published_time" content="2023-03-23T07:06:40.000Z">
+<meta property="article:modified_time" content="2023-03-23T08:35:49.953Z">
+<meta property="article:author" content="KAI">
+<meta property="article:tag" content="CS3103">
+<meta property="article:tag" content="Operating System">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/LemonKAI/image/main/20230323151337.png"><title>CS3103-Lecture-7 | KAI Blog</title><link ref="canonical" href="https://lemonkai.github.io/2023/03/23/CS3103-Lecture-7/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"複製","copySuccess":"複製成功","copyError":"複製失敗"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首頁</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">歸檔</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分類</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">標籤</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">CS3103-Lecture-7</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">發表於</span><span class="post-meta-item__value">2023-03-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新於</span><span class="post-meta-item__value">2023-03-23</span></span></div></header><div class="post-body">
+        <h1 id="Background"   >
+          <a href="#Background" class="heading-link"><i class="fas fa-link"></i></a><a href="#Background" class="headerlink" title="Background"></a>Background</h1>
+      <span id="more"></span>
+
+<ul>
+<li><p>User programs must be brought into memory and placed within a process for it to run</p>
+</li>
+<li><p>User programs go through several steps before running</p>
+</li>
+</ul>
+
+        <h2 id="Logical-vs-Physical-Address-Space"   >
+          <a href="#Logical-vs-Physical-Address-Space" class="heading-link"><i class="fas fa-link"></i></a><a href="#Logical-vs-Physical-Address-Space" class="headerlink" title="Logical vs. Physical Address Space"></a>Logical vs. Physical Address Space</h2>
+      <ul>
+<li><p>The concept of a logical address space that is bound to a separate physical address space is central to memory management</p>
+<ul>
+<li>Logical address – generated by the CPU; also called virtual address</li>
+<li>Physical address – address seen by the momery unit<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323151337.png"></li>
+</ul>
+</li>
+<li><p>Logical and physical addresses are the same in complie-time and load-time address-binding schemes</p>
+</li>
+<li><p>Logical (virtual) and physical addresses differ in execution-time address-binding scheme</p>
+</li>
+</ul>
+
+        <h2 id="Memory-Management-Unit-MMU"   >
+          <a href="#Memory-Management-Unit-MMU" class="heading-link"><i class="fas fa-link"></i></a><a href="#Memory-Management-Unit-MMU" class="headerlink" title="Memory-Management Unit (MMU)"></a>Memory-Management Unit (MMU)</h2>
+      <ul>
+<li>Hardware device that maps virtual to physical address<ul>
+<li>The value in the relocation register is added to every address generated by a user process when sent to memory</li>
+</ul>
+</li>
+<li>The user program deals with logical addresses; it never sees the real physical addresses<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323151846.png"></li>
+</ul>
+
+        <h2 id="Swapping"   >
+          <a href="#Swapping" class="heading-link"><i class="fas fa-link"></i></a><a href="#Swapping" class="headerlink" title="Swapping"></a>Swapping</h2>
+      <ul>
+<li>Process can be swapped temporarily out of memory, and brought back into memory later<ul>
+<li>Major part of swap time is transfer time, directly proportional to the amount of memory swapped</li>
+<li>COmmonly used in many OS(i.e. UNIX, Linux, and Windows)<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323152311.png"></li>
+</ul>
+</li>
+</ul>
+
+        <h1 id="Dynamic-Storage-Allocation-Problem"   >
+          <a href="#Dynamic-Storage-Allocation-Problem" class="heading-link"><i class="fas fa-link"></i></a><a href="#Dynamic-Storage-Allocation-Problem" class="headerlink" title="Dynamic Storage-Allocation Problem"></a>Dynamic Storage-Allocation Problem</h1>
+      <ul>
+<li><p>Hole: block of available memory; holes of various size are scattered throughout memory</p>
+</li>
+<li><p>When a process arrives, it is allocated memory from a hole large enough to accommodate it</p>
+</li>
+<li><p>OS maintains: allocated partitions and free partitions(hole)<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323152338.png"></p>
+</li>
+<li><p>How to satisfy a request of size n from a list of tree holes</p>
+<ul>
+<li>First-fit: Allocate the first hole that is big enough. Simple</li>
+<li>Best-fit: Allocate the smallest hole that is big enough; must search entire list, unless ordered by size. Produces the smallest leftover hole</li>
+<li>Worst-fit: Allocate the largest hole; must also search entire list. Produces the largest leftover hole<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323152701.png"></li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Fragmentation"   >
+          <a href="#Fragmentation" class="heading-link"><i class="fas fa-link"></i></a><a href="#Fragmentation" class="headerlink" title="Fragmentation"></a>Fragmentation</h2>
+      <ul>
+<li><p>External Fragmentation: total memory space enough to satisfy a request, but not contingous </p>
+<ul>
+<li>Reduce external fragmentation by compaction<ul>
+<li>Shuffle memory contents to place all free memory together in one block</li>
+<li>Possible only with dynamic relocation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Internal Fragmentation: allocated memory may be larger than requested memory</p>
+</li>
+</ul>
+
+        <h1 id="Memory-Management-Techniques"   >
+          <a href="#Memory-Management-Techniques" class="heading-link"><i class="fas fa-link"></i></a><a href="#Memory-Management-Techniques" class="headerlink" title="Memory Management Techniques"></a>Memory Management Techniques</h1>
+      <ul>
+<li>Two major memory management techniques<ul>
+<li>Paging</li>
+<li>Segmentation</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Paging"   >
+          <a href="#Paging" class="heading-link"><i class="fas fa-link"></i></a><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h2>
+      <ul>
+<li>Divide physical memory into fixed-sized blocks called frames<ul>
+<li>size is power of 2, typically between 512 bytes and 8192 bytes</li>
+</ul>
+</li>
+<li>Divide logical memory into blocks of same size called pages</li>
+<li>Keep track of all free frames<ul>
+<li>To run a program of size n pahes, need to find n free frames</li>
+</ul>
+</li>
+<li>Set up a page table to translate logical to physical addresses</li>
+<li>External fragmentation eliminated</li>
+<li>Inernal fragmentation still exists</li>
+</ul>
+
+        <h2 id="Advantages-of-Paging"   >
+          <a href="#Advantages-of-Paging" class="heading-link"><i class="fas fa-link"></i></a><a href="#Advantages-of-Paging" class="headerlink" title="Advantages of Paging"></a>Advantages of Paging</h2>
+      <ul>
+<li><p>Flexibility: Supporting the abstraction of address sapce effectively</p>
+<ul>
+<li>Don’t need assumption how heap and stack grow and are used</li>
+</ul>
+</li>
+<li><p>Simplicity: ease of free-space management</p>
+<ul>
+<li>The page in address sapce and the page frame are the same size</li>
+<li>Easy to allocate and keep a free list</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="Example-A-Simple-Paging"   >
+          <a href="#Example-A-Simple-Paging" class="heading-link"><i class="fas fa-link"></i></a><a href="#Example-A-Simple-Paging" class="headerlink" title="Example: A Simple Paging"></a>Example: A Simple Paging</h2>
+      <ul>
+<li>128-byte physical memory with 16 bytes page frames</li>
+<li>64-byte logical address space with 16 bytes pages<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160200.png"></li>
+</ul>
+
+        <h2 id="Paging-Example"   >
+          <a href="#Paging-Example" class="heading-link"><i class="fas fa-link"></i></a><a href="#Paging-Example" class="headerlink" title="Paging Example"></a>Paging Example</h2>
+      <p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160235.png"></p>
+
+        <h2 id="Free-Frames"   >
+          <a href="#Free-Frames" class="heading-link"><i class="fas fa-link"></i></a><a href="#Free-Frames" class="headerlink" title="Free Frames"></a>Free Frames</h2>
+      <p><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160302.png"></p>
+
+        <h2 id="Address-Translation"   >
+          <a href="#Address-Translation" class="heading-link"><i class="fas fa-link"></i></a><a href="#Address-Translation" class="headerlink" title="Address Translation"></a>Address Translation</h2>
+      <ul>
+<li><p>Two components in the virtual address</p>
+<ul>
+<li>Virtual page number(VPN)</li>
+<li>Offset: offset within the page<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160432.png"></li>
+</ul>
+</li>
+<li><p>Example: virtual address 21 in 64-byte address space<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160618.png"><br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323160810.png"></p>
+</li>
+</ul>
+
+        <h3 id="What-is-In-the-Page-Table"   >
+          <a href="#What-is-In-the-Page-Table" class="heading-link"><i class="fas fa-link"></i></a><a href="#What-is-In-the-Page-Table" class="headerlink" title="What is In the Page Table?"></a>What is In the Page Table?</h3>
+      <ul>
+<li><p>The page table is just a data structure that is used to map the virtual address to physical address</p>
+<ul>
+<li>Simplest form: a linear page table, an array</li>
+</ul>
+</li>
+<li><p>The OS indexes the array by VPN, and looks up the page-table entry</p>
+</li>
+</ul>
+
+        <h3 id="Common-Flags-Of-Page-Table-Entity"   >
+          <a href="#Common-Flags-Of-Page-Table-Entity" class="heading-link"><i class="fas fa-link"></i></a><a href="#Common-Flags-Of-Page-Table-Entity" class="headerlink" title="Common Flags Of Page Table Entity"></a>Common Flags Of Page Table Entity</h3>
+      <ul>
+<li>Valid Bit: Indicating whether the particular translation is valid</li>
+<li>Protection Bit: Indicating whether the page could be read from, written to, or executed form</li>
+<li>Present Bit: Indicating whether this page is in physical memory or on disk (swapped out)</li>
+<li>Dirty Bit: Indicating whether the page has been modified since it was brought into memory</li>
+<li>Reference Bit(Accessed Bit): Indicating that a page has been accessed</li>
+</ul>
+
+        <h2 id="Page-Table"   >
+          <a href="#Page-Table" class="heading-link"><i class="fas fa-link"></i></a><a href="#Page-Table" class="headerlink" title="Page Table"></a>Page Table</h2>
+      <ul>
+<li>Simple linear page table:<ul>
+<li>The high-order(left-most) bit is the VALID bit</li>
+<li>If the bit is 1, the rest of the entry is the physical frame no. (PFN)</li>
+<li>IF the nit is 0, the page is not valid<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323161558.png"></li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="A-linear-Page-Table-Example"   >
+          <a href="#A-linear-Page-Table-Example" class="heading-link"><i class="fas fa-link"></i></a><a href="#A-linear-Page-Table-Example" class="headerlink" title="A linear Page Table Example"></a>A linear Page Table Example</h3>
+      <ul>
+<li>Some basic assumptions:<ul>
+<li>address space size 16k<ul>
+<li>virtual address: 14bits</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Translate virtual address: 0x3229<ul>
+<li>Binary: 11 0010 0010 1001<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323161818.png"></li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Storing-Linear-Page-Tables"   >
+          <a href="#Storing-Linear-Page-Tables" class="heading-link"><i class="fas fa-link"></i></a><a href="#Storing-Linear-Page-Tables" class="headerlink" title="Storing Linear Page Tables"></a>Storing Linear Page Tables</h3>
+      <ul>
+<li>Page tables for each process are stored in memory</li>
+<li>Page table are too big and thus consume too much memory<ul>
+<li>32-bit address space with 4-KB pages, 20 bits for VPN<ul>
+<li>imagine there are 100 processes: the OS would need 400MB of memory just for all those address translations!<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323162703.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="Page-Size-vs-Page-Table-Size"   >
+          <a href="#Page-Size-vs-Page-Table-Size" class="heading-link"><i class="fas fa-link"></i></a><a href="#Page-Size-vs-Page-Table-Size" class="headerlink" title="Page Size vs Page Table Size"></a>Page Size vs Page Table Size</h3>
+      <ul>
+<li>we could reduce the size of the page table in one simple way: use bigger pages<ul>
+<li>assume 32-bit address space wtih 16KB pages and 4-bytes page-table entry<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323162842.png"></li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="TLB"   >
+          <a href="#TLB" class="heading-link"><i class="fas fa-link"></i></a><a href="#TLB" class="headerlink" title="TLB"></a>TLB</h2>
+      <ul>
+<li><p>Page table is stored in main memory </p>
+</li>
+<li><p>The access to the page table can speedup by using a special fast-lookup hardwawre translation look-aside buffers(TLBs)</p>
+<ul>
+<li>TLB is small, typically between 64 and 1024 entries</li>
+<li>A cache for the page table<br><img src="https://raw.githubusercontent.com/LemonKAI/image/main/20230323163136.png"></li>
+</ul>
+</li>
+<li><p>TLB hardware supports parallel search </p>
+</li>
+<li><p>Address translation <code>(A&#39;, A&#39;&#39;)</code></p>
+<ul>
+<li>If <code>A&#39;</code> is found, get frame <code># out</code></li>
+<li>Otherwise get frame <code>#</code> from page table in memory</li>
+</ul>
+</li>
+</ul>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文結束，感謝您的閱讀 ------</div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/CS3103/">CS3103</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://lemonkai.github.io/tags/Operating-System/">Operating System</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2023/03/20/CS3481-Lecture-6/"><span class="paginator-prev__text">CS3481-Lecture-6</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="utterances-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目錄</span><span class="sidebar-nav-ov">本站概覽</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Background"><span class="toc-number">1.</span> <span class="toc-text">
+          Background</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Logical-vs-Physical-Address-Space"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Logical vs. Physical Address Space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memory-Management-Unit-MMU"><span class="toc-number">1.2.</span> <span class="toc-text">
+          Memory-Management Unit (MMU)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Swapping"><span class="toc-number">1.3.</span> <span class="toc-text">
+          Swapping</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dynamic-Storage-Allocation-Problem"><span class="toc-number">2.</span> <span class="toc-text">
+          Dynamic Storage-Allocation Problem</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fragmentation"><span class="toc-number">2.1.</span> <span class="toc-text">
+          Fragmentation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Memory-Management-Techniques"><span class="toc-number">3.</span> <span class="toc-text">
+          Memory Management Techniques</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Paging"><span class="toc-number">3.1.</span> <span class="toc-text">
+          Paging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advantages-of-Paging"><span class="toc-number">3.2.</span> <span class="toc-text">
+          Advantages of Paging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-A-Simple-Paging"><span class="toc-number">3.3.</span> <span class="toc-text">
+          Example: A Simple Paging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Paging-Example"><span class="toc-number">3.4.</span> <span class="toc-text">
+          Paging Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Free-Frames"><span class="toc-number">3.5.</span> <span class="toc-text">
+          Free Frames</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Address-Translation"><span class="toc-number">3.6.</span> <span class="toc-text">
+          Address Translation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-In-the-Page-Table"><span class="toc-number">3.6.1.</span> <span class="toc-text">
+          What is In the Page Table?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Flags-Of-Page-Table-Entity"><span class="toc-number">3.6.2.</span> <span class="toc-text">
+          Common Flags Of Page Table Entity</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Page-Table"><span class="toc-number">3.7.</span> <span class="toc-text">
+          Page Table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-linear-Page-Table-Example"><span class="toc-number">3.7.1.</span> <span class="toc-text">
+          A linear Page Table Example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Storing-Linear-Page-Tables"><span class="toc-number">3.7.2.</span> <span class="toc-text">
+          Storing Linear Page Tables</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Page-Size-vs-Page-Table-Size"><span class="toc-number">3.7.3.</span> <span class="toc-text">
+          Page Size vs Page Table Size</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TLB"><span class="toc-number">3.8.</span> <span class="toc-text">
+          TLB</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Seize the Day</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">歸檔</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">分類</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">標籤</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已閱讀了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>KAI</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function loadUtterances() {
+  var d = document, s = d.createElement('script');
+  var container = d.getElementById('utterances-container');
+
+  if (!container) {
+    return;
+  }
+  s.src = 'https://utteranc.es/client.js';
+  s.setAttribute('repo', 'LemonKAI/KAIBlogComment');
+  s.setAttribute('issue-term', 'title');
+  s.setAttribute('label', 'utterances');
+  s.setAttribute('theme', 'github-light');
+  s.setAttribute('crossorigin', 'anonymous');
+  s.setAttribute('async', '');
+  if (false) {
+    s.setAttribute('data-pjax-rm', '');
+  }
+  container.append(s);
+}
+
+if (false) {
+  loadUtterances();
+} else {
+  window.addEventListener('DOMContentLoaded', loadUtterances, false);
+}</script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
